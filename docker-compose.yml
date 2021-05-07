@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  web:
+    container_name: listening-app
+    restart: always
+    build: .
+    ports:
+      - "2500:8080"
+    links:
+      - database
+    volumes:
+      - .:/usr/src/app
+  database:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - "27017:27019"
+    logging:
+      driver: none
