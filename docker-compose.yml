@@ -15,6 +15,8 @@ services:
     container_name: mongodb
     image: mongo
     ports:
-      - "27017:27019"
+      - "27017:27017"
     logging:
       driver: none
+    volumes:
+      - ./database:/data/db
